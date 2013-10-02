@@ -1,0 +1,388 @@
+%| Weekly report template for CSUS Senior Design
+%|
+%| language: LaTeX
+%| Author: Ben Smith
+%| 
+%| This source has been tagged with the "<CHANGE" tag in areas
+%| that require updating when making a new docuent
+%|
+%| This source will generate a PDF file complete with thumbnails navigation menu and metadata.
+%| Much of the tex awesomeness comes from http://www.michaelshell.org/ praise be to him for creating the guide
+
+\documentclass[12pt,compsoc]{IEEEtran}
+
+%| Override compsoc class' Palatino font for body text, restores to Times New Roman
+\renewcommand{\rmdefault}{ptm}\selectfont
+
+%| IEEE Citation package
+ \usepackage{cite}
+
+%| American Mathematical Society package for fancy maths	
+\usepackage[cmex10]{amsmath}
+\interdisplaylinepenalty=2500				% Restores IEEE line spacing after amsmath
+
+%| Better tables than LaTeX 2e
+\usepackage{array}
+
+%| Improved URL handling
+\usepackage{url}
+
+%| Enables PDF metadata, thumbnails, and navigation
+\newcommand\MYhyperrefoptions{
+	bookmarks=true,
+	bookmarksnumbered=true,
+	pdfpagemode={UseOutlines},
+	plainpages=false,
+	pdfpagelabels=true,
+	colorlinks=true,
+	linkcolor={black},
+	citecolor={black},
+	pagecolor={black},
+	urlcolor={black},
+	pdftitle={Senior Design: Weekly Progress Report},							%#CHANGE
+	pdfsubject={Senior Design},													%#CHANGE
+	pdfauthor={Michael Frith, David Larribas, Devin Moore, Benjamin Smith},		%#CHANGE
+	pdfkeywords={Weekly Report}}												%#CHANGE
+
+%| Calls hyper ref package 
+\usepackage[\MYhyperrefoptions,pdftex]{hyperref}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+
+%| =================================================================================================
+%| Title Block
+%| =================================================================================================
+\title{Senior Design: Week Three Progress Report}
+\author{Team 3: Micheal Frith, David Larribas, Devin Moore, Benjamin Smith}
+\date{\today}
+\maketitle
+
+%| =================================================================================================
+%| Header 
+%| =================================================================================================
+\markboth{Progress Report 1: \today}%
+{derp}
+
+%| =================================================================================================
+%| Weekly time report
+%| =================================================================================================
+\section{Group Time Synopsis}
+	\subsection{Team efforts and overall status}
+		{\bfseries Current Group Leader:} Ben Smith
+		\IEEEPARstart{T}{he} group spent about half of its bandwidth on developing the work breakdown 
+		structure (WBS) and documentation. The WBS gave the group an opportunity to clarify a feature set 
+		after last week’s Design Document review. The Design Document revisions for this week reflect our 
+		changes of expectation in accordance with last week's review.
+		
+		Three development boards have been purchased by the group for Verilog development and testing. 
+		These boards come equipped with the Analog Devices ADXL345 accelerometer that is configurable for 
+		SPI or I$^2$C. This accelerometer is extremely common and the most likely to be used in the final 
+		production design. Having the accelerometer on board will prove invaluable for the breadboard proof.
+
+		The development board supports JTAG over USB and does not require an external power supply. It will 
+		provide hardware based verification in a small, easy to use form factor. The board is also based on 
+		the Altera Cyclone IV FPGA. This allows the use of development tools familiar to the group members. 
+		The FPGA is also large enough to use Signaltap, Altera’s embedded logic analyzer.
+	
+	\begin{table}[ht]
+		\renewcommand{\arraystretch}{1.3}
+		\caption{Weekly Team Meetings}
+		
+		\label{Team Hour Summary}
+		
+		\centering
+		\begin{tabular}{p{7cm}|p{1cm}}
+		\hline
+		{\bfseries 	Topic} 																		&{\bfseries Hours}		\\
+		\hline\hline
+					{\bfseries Tuesday:}  Review after Meeting with Professor Tatro  			& 1.0					\\
+					{\bfseries Thursday:} WBS assignment review and section assignment			& 3.0					\\
+					{\bfseries Sunday :}  Finalization of WBS and Design Document Review		& 5.0					\\
+					{\bfseries Monday :}  Weekly Report drafting								& 5.0					\\
+					{\bfseries Monday :}  WBS typesetting and final review 						& 5.0					\\
+		\hline
+		\end{tabular}
+	\end{table}
+		 
+	\subsection{Review after Meeting with Professor Tatro}
+		We revised the punch list, particularly the motor control modes, after design document review.
+		This lead to the elimination of all operational modes except biometric feedback. The biometric
+		feedback scheme's definition was made more broad to allow for change over span of the project.
+				
+	\subsection{WBS assignment review and section assignment}
+		Group members took responsibility for individual sections in the WBS related to their technical
+		expertise. A diagrammatic representation of the WBS was constructed to ensure mutual exclusivity
+		of the individual sections.
+
+	\subsection{Finalization of WBS and Design Document Review}
+		The group met on line to compile and review their individual sections of the WBS they worked on
+		over the week. Final draft was prepared for typesetting on Monday.
+
+	\subsection{Weekly Report drafting and weekly debrief}
+		Group assembled to review progress over the last week. Expectations of next week's time expenditure
+		were drafted from the lecture notes for the week. The group was brought up to speed with Mike's
+		motor research from last week.
+
+	\subsection{WBS typesetting and final review}
+		Document was typeset and reviewed by the group to catch spelling and grammatical errors.
+
+%| =================================================================================================
+%| Individual Activity Synopsis
+%| Mike
+%| =================================================================================================
+\section{Individual Activity Synopsis}
+	\subsection{Micheal Frith}
+
+	\subsubsection*{Synopsis of past week's work}
+        I spent considerable time researching various hub motors as well as preliminarily selecting a 
+        speed controller after getting in touch with Richard Lyen, a custom motor controller designer 
+        in San Francisco. He steered me towards some potential motor suppliers as well as made some 
+        recommendations for motors themselves. I'm waiting on contact back after some initial 
+        conversation with a potential supplier about getting a discounted motor. Other than motor and 
+        speed controller research, I spent time investigating integrating audio into our design. 
+        Generating sound at the FPGA level may be a good preliminary implementation. Additionally 
+        I worked on my sections of WBS document, weekly report, and design contract.
+
+    \begin{table}[ht]
+		\renewcommand{\arraystretch}{1.3}
+		\caption{Micheal Frith: Tasks Assigned - Last Week}
+		
+		\label{Summary of Micheal Frith's activities: last week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+		\hline
+		\bfseries 	Task		 							& \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+					Component Research/Selection			& 6.0 						& 60\%	 			\\    		
+					Work Breakdown Structure                & 6.0 		                & 100\%   			\\   
+					Researched implementing FPGA audio 		& 2.0						& 20\% 				\\
+					Design Contract Finalization			& 4.0 						& 100\%   			\\  
+					Gantt Chart								& 0 						& 10\%    			\\ 
+							\hline
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.3}
+		\caption{Micheal Frith: Tasks Assigned - This Week}
+		
+		\label{Summary of Micheal Frith's activities: this week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+		\hline
+		\bfseries 	Task		 							& \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+					Component research/selection			& 6.0						& 80\%				\\
+					PERT/TeamGantt							& 6.0						& 90\%				\\
+                    Start FPGA Dev: Screen, User inputs     & 3                         & 10\%%             \\
+		\hline
+		\end{tabular}
+	\end{table}
+
+	%\subsubsection*{Special Problems or other reporting}
+	%Getting a process established for getting work done more efficiently has been challenging, as we've each been spending 30+ hours a week these 2 weeks.
+
+%| =================================================================================================
+%| Individual Activity Synopsis
+%| David
+%| =================================================================================================
+\subsection{David Larribas}
+
+	\subsubsection*{Synopsis of past week's work}
+
+	For the first task of this week, my group and I met up with Professor Tatro to realign our focus. 
+	This led to some rewording that altered the scope of our project including changing specifications 
+	in my part of the design document. I researched over a dozen lighting systems and their reviews to 
+	estimate which LEDs to use. I researched three power conversion methods and settled on a buck 
+	converter to be the ideal method because of its minimal power loss. I then wrote up the safety and 
+	power system sections of the WBS diagram. I also wrote my sections of the WBS document including 
+	the lighting and power systems. I had to research the various components of these sections by 
+	searching through half a dozen websites to price these items.
+
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.3}
+		\caption{David Larribas: Tasks Assigned - Last Week}
+		
+		\label{Summary of David Larribas' activities: last week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+		\hline
+		\bfseries 	Task		 	                        				& \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+					Work breakdown Structure 								& 8.0				    	& 100\%				\\	
+					Develop Gantt Chart										& 1.0						& 5\%               \\
+                    Component research and selection for lighting 			& 3.0                       & 50\%              \\
+                    Component research and selection for Voltage Regulator	& 2.0                       & 25\%              \\
+                    Weekly Report - Week 3                                   & 2.0                       & 100\%         \\
+                    Editing Design Document                                 & 2.0                       & 100\%
+		\hline
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.3}
+		\caption{David Larribas: Tasks Assigned - Next Week}
+		
+		\label{Summary of David Larribas' activites: this week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+		\hline
+
+		\bfseries 	Task		 	                         			    & \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+					Develop Gantt Chart										& 4.0						& 5\%				\\
+                    Component research and selection for Lighting           & 2.0                       & 50\%              \\
+					Component research and selection for Voltage Regulator  & 6.0						& 25\%				\\
+					"Breadboard" Voltage Regulator		    				& 4.0						& 0\%				\\	
+                    \hline
+		\end{tabular}
+	\end{table}
+
+	%\subsubsection*{Special Problems or other reporting}
+    %Predicting hours seems to be a problem as we are usually underestimating the time it takes us to complete tasks. I have been lucky so far as I have not had much strain from other sources, but in the future I will need to allocate time more efficiently.
+     
+	
+
+%| =================================================================================================
+%| Individual Activity Synopsis
+%| Devin
+%| =================================================================================================
+\subsection{Devin Moore}
+
+	\subsubsection*{Synopsis of past week's work}
+
+	The beginning of the week consisted of researching and discussing possible features for the system. 
+	Once they had been compiled we broke them up into groups to research and report the various
+	aspects of each feature including why it is relevant, what has been done before, how it would be
+	implemented, and resources needed. After we had finished, we began typesetting the document in \LaTeX\
+	and refining our desired layout. There was a substantial amount of discussion on required features and 
+    possible parts to order.
+
+
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.3}
+		\caption{Devin Moore: Tasks Assigned - Last Week}
+		
+		\label{Summary of Devin Moore's activities: last week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+
+		\hline
+		\bfseries 	Task		 		                    & \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+					Refine Problem Statement				& 2.0						& 80\%				\\
+					Refined Design Contract					& 4.0						& 100\%				\\
+					Selected and Ordered FPGA dev kit		& 3.0						& 70\%				\\
+					Wrote Work Breakdown Structure			& 15.0						& 100\%				\\
+					Started IMU I$^2$C Interface				& 4.0						& 15\%				\\
+					Started Cell Phone App					& 2.0						& 10\%				\\
+		\hline
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.3}
+		\caption{Devin Moore: Tasks Assigned - Next Week}
+		
+		\label{Summary of Devin Moore's activites: this week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+
+		\hline
+		\bfseries 	Task		 		            & \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+			    	Scheduling and Gantt Chart	    & 10.0						& 90\%				\\
+                    IMU I$^2$C interface               & 25.0                      & 80\%              \\
+                    \hline
+		\end{tabular}
+	\end{table}
+
+	%\subsubsection*{Special Problems or other reporting}
+	%Difficulty understanding what is actually due. The difference between the design document and the design
+    %contract was not clear to me.
+%| =================================================================================================
+%| Individual Activity Synopsis
+%| Ben
+%| =================================================================================================
+\subsection{Ben Smith}
+
+	\subsubsection*{Synopsis of past week's work}
+	I spent a good deal of time learning how use Mentor's Modelsim application and learning to write 
+	a proper System Verilog test bench. Until now I have largely used Signaltap to validate design, 
+	this was effective for small projects but is ineffective for large designs. A proper test bench 
+	allows the use of automated debugging constructs like random generation and assertion which 
+	ensure adherence to a much more rigorous specification and allow a more rapid verification-development 
+	cycle. I averaged a 5 minute synthesis time average with the Cyclone over my summer internship. 
+	This week’s compilations with Modelsim averaged under 5 seconds. The advantage of simulator 
+	use is clear, more code, better code, less time.
+	
+	The analysis of the open cores module brought the group up to speed with I$^2$C. We have a clear
+	understanding of how the I$^2$C protocol works. This understanding allows us to write a specification
+	for what we need our module to do. We need a Master controller that will operate in single master
+	mode at the 100kHz I$^2$C spec. We know both the accelerometer and gyroscope operate at this speed.
+
+	Devin and I have begun to write the HDL for our implementation of a I$^2$C master controller. This
+	week setup the skeleton of the State machine to control data transmission. The Input/Output port
+	were defined in the top level module with support for the bidirectional SDA port.
+
+	A different interface type for the heart rate strap was investigated. ANT+ is a open standard for
+	personal area networks that already include a specification for a heart rate monitor. ANT+ is
+	being adopted as the defacto standard for consumer biometric devices. Garmin and Polar both use
+	this standard for their newer models of heart rate straps. A dual Bluetooth ANT+ module was ordered
+	for experimentation. I already use a Garmin system and own a ANT+ heart rate strap and a speed/cadence
+	module. Using Bluetooth to connect to both the heart rate and cellphone requires the bluetooth adapter
+	to operate in master mode which will cause some implementation headaches. Using ANT+ allows the bluetooth
+	adapter to operate in slave mode to connect to the cellphone and ANT+ for devices that need to communicate
+	with the FPGA alone.
+
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.3}
+		\caption{Ben Smith: Tasks Assigned - Last Week}
+		
+		\label{Summary of Ben Smith's activities: last week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+
+		\hline
+		\bfseries 		Task				        & \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+					Refine Problem Statement		& 2.0						& 80\%				\\
+                    Revising Design Contract        & 10.0                      & 80\%              \\
+                    Work Breakdown Structure        & 10.0                      & 100\%            	\\
+                    Verilog I$^2$C interface           & 15.0                      & 15\%              \\
+		\hline
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.3}
+		\caption{Ben Smith: Tasks Assigned - Next Week}
+		
+		\label{Summary of Ben Smith's activites: this week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+
+		\hline
+		\bfseries 	Task	            	 		& \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+					Scheduling and Gantt Chart	    & 10.0						& 90\%				\\
+                    IMU I$^2$C interface               & 25.0                      & 80\%              \\
+                    ANT+ experimentation 		    & 10.0						& 10\%				\\
+		\hline
+		\end{tabular}
+	\end{table}
+
+	%\subsubsection*{Special Problems or other reporting}
+    %I'm excited to start writing code.
+\end{document}

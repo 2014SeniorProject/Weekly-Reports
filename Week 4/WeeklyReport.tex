@@ -1,0 +1,368 @@
+%| Weekly report template for CSUS Senior Design
+%|
+%| language: LaTeX
+%| Author: Ben Smith
+%| 
+%| This source has been tagged with the "<CHANGE" tag in areas
+%| that require updating when making a new docuent
+%|
+%| This source will generate a PDF file complete with thumbnails navigation menu and metadata.
+%| Much of the tex awesomeness comes from http://www.michaelshell.org/ praise be to him for creating the guide
+
+\documentclass[12pt,compsoc]{IEEEtran}
+
+%| Override compsoc class' Palatino font for body text, restores to Times New Roman
+\renewcommand{\rmdefault}{ptm}\selectfont
+
+%| IEEE Citation package
+ \usepackage{cite}
+
+%| American Mathematical Society package for fancy maths	
+\usepackage[cmex10]{amsmath}
+\interdisplaylinepenalty=2500				% Restores IEEE line spacing after amsmath
+
+%| Better tables than LaTeX 2e
+\usepackage{array}
+
+%| Improved URL handling
+\usepackage{url}
+
+%| Enables PDF metadata, thumbnails, and navigation
+\newcommand\MYhyperrefoptions{
+	bookmarks=true,
+	bookmarksnumbered=true,
+	pdfpagemode={UseOutlines},
+	plainpages=false,
+	pdfpagelabels=true,
+	colorlinks=true,
+	linkcolor={black},
+	citecolor={black},
+	urlcolor={black},
+	pdftitle={Senior Design: Weekly Progress Report},							%#CHANGE
+	pdfsubject={Senior Design},													%#CHANGE
+	pdfauthor={Michael Frith, David Larribas, Devin Moore, Benjamin Smith},		%#CHANGE
+	pdfkeywords={Weekly Report}}												%#CHANGE
+
+%| Calls hyper ref package 
+\usepackage[\MYhyperrefoptions,pdftex]{hyperref}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\begin{document}
+
+%| =================================================================================================
+%| Title Block
+%| =================================================================================================
+\title{Senior Design: Week Four Progress Report}
+\author{Team 3: Micheal Frith, David Larribas, Devin Moore, Benjamin Smith}
+\date{\today}
+\maketitle
+
+%| =================================================================================================
+%| Header 
+%| =================================================================================================
+\markboth{Progress Report 4: \today}
+{derp}
+
+%| =================================================================================================
+%| Weekly time report
+%| =================================================================================================
+\section{Group Time Synopsis}
+	\subsection{Team efforts and overall status}
+		{\bfseries Current Group Leader:} Ben Smith
+		\IEEEPARstart{O}{nce} again the group spent the majority of their bandwidth on planning. We've 
+		completed the Gantt chart and PERT critical path style graphs. Despite the time spent on the 
+		PERT assignment the group has moved forward on the core project considerably this week.  Mike 
+		ordered and received our motor and controller which will be used in the upcoming breadboard proof. 
+		Devin has successfully communicated with the EEPROM I$^2$C modules on the Nano development board 
+		through the modification of example code. I have begun to write the controller for the general 
+		I$^2$C driver now that the byte level controller is complete. 
+
+			Devin and I followed this split development path as a mitigation strategy to ensure we 
+		could get data from the accelerometer for the breadboard proof. The general driver is a much 
+		more complicated undertaking with a much higher chance of failure. Devin is going to continue 
+		development on the general driver this week now that the example code has been modified to suit
+		our needs.
+
+			Our objective was to have the motor running and controlled by the accelerometer for the 
+		breadboard proof. We are rapidly approaching this goal and we expect to be able to demonstrate 
+		this capability within the next week.
+	
+	\begin{table}[ht]
+		\renewcommand{\arraystretch}{1.3}
+		\caption{Weekly Team Meetings}
+		
+		\label{Weekly Team Meetings}
+		
+		\centering
+		\begin{tabular}{p{6.5cm}|p{1cm}}
+		\hline
+		{\bfseries 	Topic} 																	&{\bfseries Hours}		\\
+		\hline\hline	
+					{\bfseries Thursday:} PERT Planning and Section assignment				& 2	 					\\
+					{\bfseries Saturday:} [Online] PERT first draft							& 3						\\
+					{\bfseries Monday:} Weekly planning, Finalize WBS and weekly report		& 5	 					\\
+
+		\hline
+		\end{tabular}
+	\end{table}
+				
+	\subsection{PERT assignment review and section assignment}
+		The team discussed their individual sections and created a template to be filled out that describes each
+		of the individual tasks. This task list formed the basis of our PERT network chart and the Gantt chart.
+
+	\subsection{PERT and Gantt Chart First Draft}
+		Team met online to synchronize how we described our individual tasks. The task list allowed us to generate
+		the PERT and Gantt charts quickly.
+
+		\subsection{Weekly planning, Finalize WBS and weekly report}
+		Gantt chart was finalized and put on Bulletin board for review. Individual tasks reviewed and a plan for 
+		breadboard proof preparation was completed. Mike and David will work together to prepare the motor and
+		controller. Ben and Devin will prepare the accelerometer based feedback algorithm and I$^2$C communication
+		module.
+
+	\begin{table}[ht]
+		\renewcommand{\arraystretch}{1.3}
+		\caption{Team Hour Summary}
+		
+		\label{Team Hour Summary}
+		
+		\centering
+		\begin{tabular}{p{5cm}|p{1.5cm}}
+		\hline
+		{\bfseries 	Topic} 								&{\bfseries Hours}		\\
+		\hline\hline
+					{\bfseries Michael Frith}  			& 19.0					\\
+					{\bfseries David Larribas} 			& 15.0					\\
+					{\bfseries Devin Moore}				& 25.0					\\
+					{\bfseries Ben Smith}  				& 28.0					\\		
+					\hline
+		\end{tabular}
+	\end{table}
+
+%| =================================================================================================
+%| Individual Activity Synopsis
+%| Mike
+%| =================================================================================================
+\section{Individual Activity Synopsis}
+	\subsection{Michael Frith}
+
+	\subsubsection*{Synopsis of past week's work}
+        This past week I finalized some component selection and was able to talk a vendor into selling 
+        us a used motor at a discount. I also finalized the the ESC selection and ordered that unit 
+        as well. We went over and revised our punch list and design contract after input from Professor 
+        Tatro. I spent time working on our task list and scheduling as well.
+
+    \begin{table}[ht]
+		\renewcommand{\arraystretch}{1.3}
+		\caption{Micheal Frith: Tasks Assigned - Last Week}
+		
+		\label{Summary of Micheal Frith's activities: last week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+		\hline
+		\bfseries 	Task		 								& \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+					Motor selected and ordered 					& 4.0						& 100\%				\\
+					ESC Motor Controller selected \& ordered   	& 3.0		    			& 100\% 			\\
+					Feature list presentation 					& 2.0						& 100\%				\\
+					Design Contract \& Punch list Revision		& 3.0						& 100\%				\\
+					List of tasks and descriptions				& 5.0						& 80\%				\\
+					Gantt and Pert Chart						& 4.0						& 80\%				\\
+					Weekly Report								& 4.0						& 100\%				\\
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.3}
+		\caption{Micheal Frith: Tasks Assigned - This Week}
+		
+		\label{Summary of Micheal Frith's activities: this week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+		\hline
+		\bfseries 	Task		 							& \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+					Motor installation and testing 			& 4.0						& 100\%				\\
+					ESC installation and testing			& 4.0						& 100\%				\\
+					Breadboard proof preparation			& 6.0						& 100\%				\\
+					Weekly Report							& 1.0						& 100\%				\\
+		\hline
+		\end{tabular}
+	\end{table}
+
+%| =================================================================================================
+%| Individual Activity Synopsis
+%| David
+%| =================================================================================================
+\subsection{David Larribas}
+
+	\subsubsection*{Synopsis of past week's work}
+
+	This week we refined our feature set after we were corrected during our presentation.  After spending 
+	a day refining the list, I spent much of my time building the task list and the gantt chart.  I spent 
+	a few free hours comparing buck converters and linear conversion for the voltage regulator. It was a 
+	quick decision to go with the buck so I searched through half a dozen or so websites learning about 
+	buck circuits.
+
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.3}
+		\caption{David Larribas: Tasks Assigned - Last Week}
+		
+		\label{Summary of David Larribas' activities: last week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+		\hline
+		\bfseries 	Task		 	                        				& \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+					Refine Feature Set										&2.0 						&100\%				\\
+					Develop Gantt Chart										&8.0 						&80\%				\\
+					Component Research and Selection for Lighting			&0.0 						&80\%				\\
+					Component Research and Selection for Voltage Regulator	&2.0 						&35\%				\\
+					“Breadboard” Voltage Regulator							&0.0 						&0\%				\\
+		\hline
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.3}
+		\caption{David Larribas: Tasks Assigned - Next Week}
+		
+		\label{Summary of David Larribas' activites: this week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+		\hline
+
+		\bfseries 	Task		 	                         			    & \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+					Build Motor Mount										& 4.0 						& 5\%				\\
+					Component Research and Selection for Lighting			& 2.0 						& 50\%				\\
+					Component Research and Selection for Voltage Regulator	& 8.0 						& 25\%				\\
+					“Breadboard” Voltage Regulator							& 4.0 						& 0\%				\\
+					Individual Weekly Report								& 1.0 						& 100\% 			\\
+                    \hline
+		\end{tabular}
+	\end{table}   
+
+%| =================================================================================================
+%| Individual Activity Synopsis
+%| Devin
+%| =================================================================================================
+\subsection{Devin Moore}
+
+	\subsubsection*{Synopsis of past week's work}
+
+	This week I began developing a simple I$^2$C Verilog module to test to the protocol. I was able to 
+	create a master module to read and write to the EEPROM on the De0-Nano for testing. I then set  
+	up our Gantt chart and a document to keep track of the individual task descriptions. I wrote 
+	descriptions for all of my tasks and added them to the Gantt chart. Once all of the task descriptions
+	were finished I typeset the the LaTeX document. I then helped create the PERT Chart.
+
+
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.3}
+		\caption{Devin Moore: Tasks Assigned - Last Week}
+		
+		\label{Summary of Devin Moore's activities: last week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+
+		\hline
+		\bfseries 	Task		 		                    & \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+					Feature list presentation 				& 2.0 						& 100\%				\\
+					Design Contract Punchlist Revision		& 3.0 						& 100\%				\\
+					List of Tasks and Descriptions			&10 						& 100\%				\\
+					PERT and Gantt Chart					&9.0 						& 90\%				\\
+					Weekly Report							&1.0 						& 100\%				\\
+					Verilog I2C Developement				&8.0						& 80\%				\\
+		\hline\
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.3}
+		\caption{Devin Moore: Tasks Assigned - Next Week}
+		
+		\label{Summary of Devin Moore's activites: this week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+
+		\hline
+		\bfseries 	Task		 		            & \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+                    IMU I$^2$C interface            & 15.0                      & 80\%              \\
+                    Preparing for breadboard proof  & 10.0                      & 80\%              \\
+                    Individual Weekly Report		& 1.0 						& 100\% 			\\
+                    \hline
+		\end{tabular}
+	\end{table}
+
+%| =================================================================================================
+%| Individual Activity Synopsis
+%| Ben
+%| =================================================================================================
+\subsection{Ben Smith}
+
+	\subsubsection*{Synopsis of past week's work}
+	Using last week’s development of Modelsim skill I began the development of our I$^2$C implementation and
+	it's testing framework. The “byte level” I$^2$C controller has been completed and tested in a simulation environment. This module 
+    directly manipulates the I$^2$C data and clock lines. The controller implements what we have begun 
+	to call “phase one” of our controller - single-master with no SCL stretching or arbitration. The more 
+	advanced features of the I$^2$C spec are to be implemented after the breadboard proof. 
+
+	The low level controller is accompanied by another System Verilog test bench that verifies its operation 
+	with a simulated slave controller. Next week the top level controller module will be developed which will 
+	enable allow the slave module to make arbitrary writes and reads from a slave register. Between the three
+	modules about 350 lines of code were produced last week. We should be able have this module ready for use
+	by the breadboard proof. If not, we already have a working module from adapted Terasic example code 
+	that Devin produced as a risk mitigation plan. 
+
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.3}
+		\caption{Ben Smith: Tasks Assigned - Last Week}
+		
+		\label{Summary of Ben Smith's activities: last week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+
+		\hline
+		\bfseries 		Task				        & \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+                    Revising Design Contract        & 2.0                       & 80\%              \\
+                    Verilog I$^2$C interface        & 20.0                      & 40\%              \\
+                    Typeset Weekly report 			& 1.0						& 100\% 			\\
+                    Individual Weekly Report		& 1.0 						& 100\% 			\\
+                    Group Leader Weekly Report 		& 1.0						& 100\% 			\\
+		\hline
+		\end{tabular}
+	\end{table}
+
+	\begin{table}[ht]
+	\renewcommand{\arraystretch}{1.3}
+		\caption{Ben Smith: Tasks Assigned - Next Week}
+		
+		\label{Summary of Ben Smith's activites: this week}
+		
+		\centering
+		\begin{tabular}{p{5.5cm}|p{1cm}|p{1cm}}
+
+		\hline
+		\bfseries 	Task	            	 		& \bfseries Hours Worked	& \bfseries Status	\\
+		\hline\hline
+                    IMU I$^2$C interface            & 20.0                      & 80\%              \\
+                    Preparing for breadboard proof  & 10.0                      & 100\%              \\
+                    Individual Weekly Report		& 1.0 						& 100\% 			\\
+                    Group Leader Weekly Report 		& 1.0						& 100\% 			\\
+		\hline
+		\end{tabular}
+	\end{table}
+\end{document}
